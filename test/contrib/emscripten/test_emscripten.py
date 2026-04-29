@@ -31,7 +31,7 @@ pyodide_config.set_flags(
 def test_index(
     selenium_coverage: typing.Any, testserver_http: PyodideServerInfo, prefer_jspi: bool
 ) -> None:
-    @run_in_pyodide  # type: ignore[misc]
+    @run_in_pyodide  # type: ignore[untyped-decorator]
     def pyodide_test(selenium_coverage, host: str, port: int, prefer_jspi: bool) -> None:  # type: ignore[no-untyped-def]
         import urllib3.contrib.emscripten.fetch
         from urllib3.connection import HTTPConnection
@@ -66,7 +66,7 @@ def test_index(
 def test_pool_requests(
     selenium_coverage: typing.Any, testserver_http: PyodideServerInfo, prefer_jspi: bool
 ) -> None:
-    @run_in_pyodide  # type: ignore[misc]
+    @run_in_pyodide  # type: ignore[untyped-decorator]
     def pyodide_test(selenium_coverage, host: str, port: int, https_port: int, prefer_jspi: bool) -> None:  # type: ignore[no-untyped-def]
         # first with PoolManager
         import urllib3
@@ -137,7 +137,7 @@ def test_pool_requests(
 def test_wrong_protocol(
     selenium_coverage: typing.Any, testserver_http: PyodideServerInfo
 ) -> None:
-    @run_in_pyodide  # type: ignore[misc]
+    @run_in_pyodide  # type: ignore[untyped-decorator]
     def pyodide_test(selenium_coverage, host: str, port: int) -> None:  # type: ignore[no-untyped-def]
         import http.client
 
@@ -158,7 +158,7 @@ def test_wrong_protocol(
 def test_bad_method(
     selenium_coverage: typing.Any, testserver_http: PyodideServerInfo
 ) -> None:
-    @run_in_pyodide  # type: ignore[misc]
+    @run_in_pyodide  # type: ignore[untyped-decorator]
     def pyodide_test(selenium_coverage, host: str, port: int) -> None:  # type: ignore[no-untyped-def]
         import http.client
 
@@ -179,7 +179,7 @@ def test_bad_method(
 def test_no_response(
     selenium_coverage: typing.Any, testserver_http: PyodideServerInfo
 ) -> None:
-    @run_in_pyodide  # type: ignore[misc]
+    @run_in_pyodide  # type: ignore[untyped-decorator]
     def pyodide_test(selenium_coverage, host: str, port: int) -> None:  # type: ignore[no-untyped-def]
         import http.client
 
@@ -196,7 +196,7 @@ def test_no_response(
 
 
 def test_404(selenium_coverage: typing.Any, testserver_http: PyodideServerInfo) -> None:
-    @run_in_pyodide  # type: ignore[misc]
+    @run_in_pyodide  # type: ignore[untyped-decorator]
     def pyodide_test(selenium_coverage, host: str, port: int) -> None:  # type: ignore[no-untyped-def]
         from urllib3.connection import HTTPConnection
         from urllib3.response import BaseHTTPResponse
@@ -220,7 +220,7 @@ def test_timeout_warning(
     selenium_coverage: typing.Any,
     testserver_http: PyodideServerInfo,
 ) -> None:
-    @run_in_pyodide()  # type: ignore[misc]
+    @run_in_pyodide()  # type: ignore[untyped-decorator]
     def pyodide_test(selenium_coverage, host: str, port: int) -> None:  # type: ignore[no-untyped-def]
         import js  # type: ignore[import-not-found]
 
@@ -312,7 +312,7 @@ def test_index_https(
     testserver_http: PyodideServerInfo,
     connection_cls: str,
 ) -> None:
-    @run_in_pyodide  # type: ignore[misc]
+    @run_in_pyodide  # type: ignore[untyped-decorator]
     def pyodide_test(selenium_coverage, host: str, port: int, connection_cls: str) -> None:  # type: ignore[no-untyped-def]
         from urllib3 import connection
         from urllib3.response import BaseHTTPResponse
@@ -336,7 +336,7 @@ def test_index_https(
 def test_non_streaming_no_fallback_warning(
     selenium_coverage: typing.Any, testserver_http: PyodideServerInfo
 ) -> None:
-    @run_in_pyodide  # type: ignore[misc]
+    @run_in_pyodide  # type: ignore[untyped-decorator]
     def pyodide_test(selenium_coverage, host: str, port: int) -> None:  # type: ignore[no-untyped-def]
         import js
 
@@ -376,7 +376,7 @@ def test_non_streaming_no_fallback_warning(
 def test_streaming_fallback_warning(
     selenium_coverage: typing.Any, testserver_http: PyodideServerInfo
 ) -> None:
-    @run_in_pyodide  # type: ignore[misc]
+    @run_in_pyodide  # type: ignore[untyped-decorator]
     def pyodide_test(selenium_coverage, host: str, port: int) -> None:  # type: ignore[no-untyped-def]
         import js
 
@@ -420,7 +420,7 @@ def test_specific_method(
     selenium_coverage: typing.Any,
     testserver_http: PyodideServerInfo,
 ) -> None:
-    @run_in_pyodide  # type: ignore[misc]
+    @run_in_pyodide  # type: ignore[untyped-decorator]
     def pyodide_test(selenium_coverage, host: str, port: int) -> None:  # type: ignore[no-untyped-def]
         from urllib3 import HTTPSConnectionPool
 
@@ -604,7 +604,7 @@ def test_streaming_notready_warning(
 def test_post_receive_json(
     selenium_coverage: typing.Any, testserver_http: PyodideServerInfo
 ) -> None:
-    @run_in_pyodide  # type: ignore[misc]
+    @run_in_pyodide  # type: ignore[untyped-decorator]
     def pyodide_test(selenium_coverage, host: str, port: int) -> None:  # type: ignore[no-untyped-def]
         import json
 
@@ -635,7 +635,7 @@ def test_post_receive_json(
 def test_upload(
     selenium_coverage: typing.Any, testserver_http: PyodideServerInfo
 ) -> None:
-    @run_in_pyodide  # type: ignore[misc]
+    @run_in_pyodide  # type: ignore[untyped-decorator]
     def pyodide_test(selenium_coverage, host: str, port: int) -> None:  # type: ignore[no-untyped-def]
         from urllib3 import HTTPConnectionPool
 
@@ -676,7 +676,7 @@ def test_requests_with_micropip(
     selenium_coverage: typing.Any,
     testserver_http: PyodideServerInfo,
 ) -> None:
-    @run_in_pyodide(packages=["micropip"])  # type: ignore[misc]
+    @run_in_pyodide(packages=["micropip"])  # type: ignore[untyped-decorator]
     async def test_fn(
         selenium_coverage: typing.Any, http_host: str, http_port: int, https_port: int
     ) -> None:
@@ -704,7 +704,7 @@ def test_requests_with_micropip(
 def test_open_close(
     selenium_coverage: typing.Any, testserver_http: PyodideServerInfo
 ) -> None:
-    @run_in_pyodide  # type: ignore[misc]
+    @run_in_pyodide  # type: ignore[untyped-decorator]
     def pyodide_test(selenium_coverage, host: str, port: int) -> None:  # type: ignore[no-untyped-def]
         from http.client import ResponseNotReady
 
@@ -820,7 +820,7 @@ def test_break_worker_streaming(
 def test_response_init_length(
     selenium_coverage: typing.Any, testserver_http: PyodideServerInfo
 ) -> None:
-    @run_in_pyodide  # type: ignore[misc]
+    @run_in_pyodide  # type: ignore[untyped-decorator]
     def pyodide_test(selenium_coverage, host: str, port: int) -> None:  # type: ignore[no-untyped-def]
         import pytest
 
@@ -864,7 +864,7 @@ def test_response_init_length(
 def test_response_close_connection(
     selenium_coverage: typing.Any, testserver_http: PyodideServerInfo
 ) -> None:
-    @run_in_pyodide  # type: ignore[misc]
+    @run_in_pyodide  # type: ignore[untyped-decorator]
     def pyodide_test(selenium_coverage, host: str, port: int) -> None:  # type: ignore[no-untyped-def]
         from urllib3.connection import HTTPConnection
         from urllib3.response import BaseHTTPResponse
@@ -884,7 +884,7 @@ def test_response_close_connection(
 def test_read_chunked(
     selenium_coverage: typing.Any, testserver_http: PyodideServerInfo
 ) -> None:
-    @run_in_pyodide  # type: ignore[misc]
+    @run_in_pyodide  # type: ignore[untyped-decorator]
     def pyodide_test(selenium_coverage, host: str, port: int) -> None:  # type: ignore[no-untyped-def]
         from urllib3.connection import HTTPConnection
 
@@ -905,7 +905,7 @@ def test_read_chunked(
 def test_retries(
     selenium_coverage: typing.Any, testserver_http: PyodideServerInfo
 ) -> None:
-    @run_in_pyodide  # type: ignore[misc]
+    @run_in_pyodide  # type: ignore[untyped-decorator]
     def pyodide_test(selenium_coverage, host: str, port: int) -> None:  # type: ignore[no-untyped-def]
         import pytest
 
@@ -940,7 +940,7 @@ def test_retries(
 def test_redirects(
     selenium_coverage: typing.Any, testserver_http: PyodideServerInfo
 ) -> None:
-    @run_in_pyodide  # type: ignore[misc]
+    @run_in_pyodide  # type: ignore[untyped-decorator]
     def pyodide_test(selenium_coverage: typing.Any, host: str, port: int) -> None:
         from urllib3 import request
 
@@ -961,7 +961,7 @@ def test_disabled_redirects(
     Test that urllib3 can control redirects in Node.js.
     """
 
-    @run_in_pyodide  # type: ignore[misc]
+    @run_in_pyodide  # type: ignore[untyped-decorator]
     def pyodide_test(selenium_coverage: typing.Any, host: str, port: int) -> None:
         import pytest
 
@@ -1002,7 +1002,7 @@ def test_disabled_redirects(
 def test_insecure_requests_warning(
     selenium_coverage: typing.Any, testserver_http: PyodideServerInfo
 ) -> None:
-    @run_in_pyodide  # type: ignore[misc]
+    @run_in_pyodide  # type: ignore[untyped-decorator]
     def pyodide_test(selenium_coverage, host: str, port: int, https_port: int) -> None:  # type: ignore[no-untyped-def]
         import warnings
 
@@ -1187,7 +1187,7 @@ def test_non_jspi_fail_in_node(
     if selenium_coverage.browser != "node":
         pytest.skip("node only test")
 
-    @run_in_pyodide  # type: ignore[misc]
+    @run_in_pyodide  # type: ignore[untyped-decorator]
     def pyodide_test(selenium_coverage, host: str, port: int) -> None:  # type: ignore[no-untyped-def]
         import http.client
 
@@ -1214,7 +1214,7 @@ def test_non_jspi_fail_in_node(
 def test_jspi_fetch_error(
     selenium_coverage: typing.Any, testserver_http: PyodideServerInfo
 ) -> None:
-    @run_in_pyodide  # type: ignore[misc]
+    @run_in_pyodide  # type: ignore[untyped-decorator]
     def pyodide_test(selenium_coverage, host: str, port: int) -> None:  # type: ignore[no-untyped-def]
         import http.client
 
@@ -1237,7 +1237,7 @@ def test_jspi_fetch_error(
 def test_jspi_readstream_errors(
     selenium_coverage: typing.Any, testserver_http: PyodideServerInfo
 ) -> None:
-    @run_in_pyodide  # type: ignore[misc]
+    @run_in_pyodide  # type: ignore[untyped-decorator]
     def pyodide_test(selenium_coverage, host: str, port: int) -> None:  # type: ignore[no-untyped-def]
         import io
         from http.client import HTTPException
@@ -1281,7 +1281,7 @@ def test_jspi_readstream_errors(
 def test_has_jspi_exception(
     selenium_coverage: typing.Any, testserver_http: PyodideServerInfo
 ) -> None:
-    @run_in_pyodide  # type: ignore[misc]
+    @run_in_pyodide  # type: ignore[untyped-decorator]
     def pyodide_test(selenium_coverage, host: str, port: int) -> None:  # type: ignore[no-untyped-def]
         from unittest.mock import patch
 
@@ -1313,7 +1313,7 @@ def test_has_jspi_exception(
     )
 
 
-@run_in_pyodide  # type: ignore[misc]
+@run_in_pyodide  # type: ignore[untyped-decorator]
 def test_pool_no_port(selenium_coverage: typing.Any) -> None:
     from unittest.mock import patch
 
